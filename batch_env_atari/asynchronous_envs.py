@@ -12,7 +12,7 @@ if __name__ == '__main__':
     parser.add_argument('--n-envs', type=int, default=1)
     args = parser.parse_args()
 
-    make_env = lambda: gym.make('breakout-mixed-v0')
+    make_env = lambda: gym.make('breakout-mixed-v0', stack=False)
     env = BatchEnvWrapper([make_env for _ in range(args.n_envs)])
 
     env.reset()
@@ -26,6 +26,6 @@ if __name__ == '__main__':
 
         step_times.append(time.time() - start_time)
 
-    print('meann step time: ', np.mean(step_times))
+    print('mean step time: ', np.mean(step_times))
 
     env.close()

@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     envs = []
     for _ in range(args.n_envs):
-        envs.append(gym.make('breakout-mixed-v0'))
+        envs.append(gym.make('breakout-mixed-v0', stack=False))
 
     observation_shape = envs[0].observation_space.shape
     action_size = envs[0].action_space.n
@@ -40,4 +40,4 @@ if __name__ == '__main__':
 
         step_times.append(time.time() - start_time)
 
-    print('meann step time: ', np.mean(step_times))
+    print('mean step time: ', np.mean(step_times))

@@ -4,7 +4,7 @@ import d4rl_atari
 import numpy as np
 
 
-env = gym.make('breakout-mixed-v0')
+env = gym.make('breakout-mixed-v0', stack=False)
 
 env.reset()
 
