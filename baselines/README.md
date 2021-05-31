@@ -2,8 +2,8 @@
 This directory contains the training results of the official implementations.
 
 ## CQL
-repository: https://github.com/aviralkumar2907/CQL
-commit: d67dbe9cf5d2b96e3b462b6146f249b3d6569796
+- repository: https://github.com/aviralkumar2907/CQL
+- commit: d67dbe9cf5d2b96e3b462b6146f249b3d6569796
 
 ### command
 Basically, the command follows the instruction in their README. For medium datasets,
