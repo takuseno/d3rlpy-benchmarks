@@ -1,0 +1,38 @@
+{
+  "algorithm": "CQL",
+  "algorithm_kwargs": {
+    "batch_size": 256,
+    "max_path_length": 1000,
+    "min_num_steps_before_training": 1000,
+    "num_epochs": 500,
+    "num_eval_steps_per_epoch": 1000,
+    "num_expl_steps_per_train_loop": 1000,
+    "num_trains_per_train_loop": 1000
+  },
+  "buffer_filename": null,
+  "env_name": "halfcheetah-medium-v0",
+  "layer_size": 256,
+  "load_buffer": true,
+  "replay_buffer_size": 2000000,
+  "seed": 1,
+  "sparse_reward": false,
+  "trainer_kwargs": {
+    "deterministic_backup": true,
+    "discount": 0.99,
+    "lagrange_thresh": -1.0,
+    "max_q_backup": false,
+    "min_q_version": 3,
+    "min_q_weight": 10.0,
+    "num_qs": 2,
+    "num_random": 10,
+    "policy_eval_start": 40000,
+    "policy_lr": 0.0001,
+    "qf_lr": 0.0003,
+    "reward_scale": 1,
+    "soft_target_tau": 0.005,
+    "temp": 1.0,
+    "use_automatic_entropy_tuning": true,
+    "with_lagrange": false
+  },
+  "version": "normal"
+}
