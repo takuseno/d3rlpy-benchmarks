@@ -1,0 +1,33 @@
+{
+  "algorithm": "BEAR",
+  "algorithm_kwargs": {
+    "batch_size": 256,
+    "max_path_length": 1000,
+    "min_num_steps_before_training": 1000,
+    "num_actions_sample": 100,
+    "num_epochs": 500,
+    "num_eval_steps_per_epoch": 5000,
+    "num_expl_steps_per_train_loop": 1000,
+    "num_trains_per_train_loop": 1000
+  },
+  "buffer_filename": null,
+  "env_name": "halfcheetah-medium-replay-v0",
+  "layer_size": 256,
+  "load_buffer": true,
+  "replay_buffer_size": 2000000,
+  "seed": 2,
+  "trainer_kwargs": {
+    "discount": 0.99,
+    "kernel_choice": "gaussian",
+    "mmd_sigma": 20.0,
+    "mode": "auto",
+    "policy_lr": 0.0001,
+    "policy_update_style": "0",
+    "qf_lr": 0.0003,
+    "reward_scale": 1,
+    "soft_target_tau": 0.005,
+    "target_mmd_thresh": 0.05,
+    "target_update_period": 1
+  },
+  "version": "normal"
+}

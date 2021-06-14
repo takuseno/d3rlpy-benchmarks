@@ -1,6 +1,21 @@
 # Baseline Results
 This directory contains the training results of the official implementations.
 
+## BEAR
+- repository: https://github.com/rail-berkeley/d4rl_evaluations
+- commit: c93b9d2bf443cd5b8c43542fca9937dc50e630c3
+
+### command
+Basically, the command follows the instruction in their README.
+
+- Hopper: `kernel_type=laplacian`, `mmd_sigma=20`, `num_samples=100`
+- Walker2d: `kernel_type=laplacian`, `mmd_sigma=20`, `num_samples=100`
+- HalfCheetah: `kernel_type=gaussian`, `mmd_sigma=20`, `num_samples=100`
+
+```
+$ ython examples/bear_hdf5_d4rl.py --env=walker2d-medium-expert-v0 --policy_lr=1e-4 --num_samples=100 --kernel_type=laplacian --mmd_sigma=20 --seed 1 --gpu 0
+```
+
 ## CQL
 - repository: https://github.com/aviralkumar2907/CQL
 - commit: d67dbe9cf5d2b96e3b462b6146f249b3d6569796
