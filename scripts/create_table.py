@@ -10,15 +10,8 @@ def main():
         splits = base.split('_')
 
         algo = splits[0]
-        env = splits[1]
-
-        dataset = ''
-        for i, name in enumerate(splits[2:]):
-            if name == 'v0':
-                break
-            if i > 0:
-                dataset += '_'
-            dataset += name
+        env = splits[1].split('-')[0]
+        dataset = '-'.join(splits[1].split('-')[1:])
 
         if algo not in table:
             table[algo] = {}
