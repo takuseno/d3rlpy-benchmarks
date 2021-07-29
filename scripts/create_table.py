@@ -2,6 +2,25 @@ import glob
 import os
 import csv
 
+EXPERT_SCORES = {
+    "halfcheetah": 12135.0,
+    "hopper": 3234.3,
+    "walker2d": 4592.3,
+}
+
+# calculated from d4rl paper
+BASE_RANDOM = {
+    "halfcheetah": 280.17,
+    "hopper": 20.3,
+    "walker2d": -1.5,
+}
+
+
+def compute_normalized_score(raw_score, env):
+    expert_score = EXPERT_SCORES[env]
+    random_score = BASE_RANDOM[env]
+    return (raw_score - random_score) / (expert_score - random_score)
+
 
 def main():
     table = {}
@@ -31,7 +50,7 @@ def main():
     with open("table.csv", "w") as f:
         writer = csv.writer(f)
 
-        header = ["algo", "env", "dataset", "return"]
+        header = ["algo", "env", "dataset", "return", "normalized return"]
         writer.writerow(header)
 
         for algo in table.keys():
@@ -39,7 +58,7 @@ def main():
                 for dataset in table[algo][env]:
                     returns = table[algo][env][dataset]
                     avg = sum(returns) / len(returns)
-                    row = [algo, env, dataset, avg]
+                    row = [algo, env, dataset, avg, 100.0 * compute_normalized_score(avg, env)]
                     print(row)
                     writer.writerow(row)
 
