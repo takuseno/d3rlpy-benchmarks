@@ -10,9 +10,9 @@ EXPERT_SCORES = {
 
 # calculated from d4rl paper
 BASE_RANDOM = {
-    "halfcheetah": 280.17,
-    "hopper": 20.3,
-    "walker2d": -1.5,
+    "halfcheetah": -280.178953,
+    "hopper": -20.272305,
+    "walker2d": 1.629008,
 }
 
 
