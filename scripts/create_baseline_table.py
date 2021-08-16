@@ -15,6 +15,12 @@ BASE_RANDOM = {
     "walker2d": 1.629008,
 }
 
+TASKS = ["halfcheetah", "hopper", "walker2d"]
+
+DATASET_TYPES = ["random", "medium", "medium_replay", "medium_expert"]
+
+ALGOS = ["cql", "bear"]
+
 
 def compute_normalized_score(raw_score, env):
     expert_score = EXPERT_SCORES[env]
@@ -24,30 +30,22 @@ def compute_normalized_score(raw_score, env):
 
 def main():
     table = {}
-    for log_dir in glob.glob("reproductions/*"):
-        base = log_dir.split('/')[-1]
-        splits = base.split('_')
+    for algo in ALGOS:
+        table[algo] = {}
+        for task in TASKS:
+            table[algo][task] = {}
+            for dataset_type in DATASET_TYPES:
+                base_path = os.path.join("baselines", algo, task, dataset_type)
+                table[algo][task][dataset_type] = []
+                for log_path in glob.glob(f"{base_path}/**/**/**/progress.csv"):
+                    with open(log_path, "r") as f:
+                        reader = csv.reader(f)
+                        results = [row for row in reader]
+                    header = results[0]
+                    index = header.index("evaluation/Average Returns")
+                    table[algo][task][dataset_type].append(float(results[-1][index]))
 
-        algo = splits[0]
-        env = splits[1].split('-')[0]
-        dataset = '-'.join(splits[1].split('-')[1:])
-
-        if algo not in table:
-            table[algo] = {}
-
-        if env not in table[algo]:
-            table[algo][env] = {}
-
-        if dataset not in table[algo][env]:
-            table[algo][env][dataset] = []
-
-        with open(os.path.join(log_dir, 'environment.csv'), 'r') as f:
-            reader = csv.reader(f)
-            results = [row for row in reader]
-
-        table[algo][env][dataset].append(float(results[-1][-1]))
-
-    with open("table.csv", "w") as f:
+    with open("baseline_table.csv", "w") as f:
         writer = csv.writer(f)
 
         header = ["algo", "env", "dataset", "return", "normalized return"]
