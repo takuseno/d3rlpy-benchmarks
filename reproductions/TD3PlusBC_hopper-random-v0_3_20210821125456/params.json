@@ -1,0 +1,104 @@
+{
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "actor_learning_rate": 0.0003,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "alpha": 2.5,
+  "batch_size": 256,
+  "critic_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "critic_learning_rate": 0.0003,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "n_critics": 2,
+  "n_frames": 1,
+  "n_steps": 1,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "bootstrap": false,
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": {
+    "type": "standard",
+    "params": {
+      "mean": [
+        [
+          1.052951717842971,
+          0.04361397530841378,
+          -0.6086583756680322,
+          -0.05681363159824218,
+          0.3881053210287061,
+          1.632462799037415,
+          -0.6097288945536018,
+          0.07854553980899899,
+          -1.4181978260853507,
+          -0.12241682436041332,
+          -0.7936632286812019
+        ]
+      ],
+      "std": [
+        [
+          0.23414424346032764,
+          0.038914084242388805,
+          0.46286410817523,
+          0.08526577864957427,
+          0.5401816794460896,
+          1.0340484149317632,
+          0.9314396118327591,
+          0.9115812966123996,
+          1.6916312198935848,
+          1.8750028539950099,
+          4.887134517838861
+        ]
+      ],
+      "eps": 0.001
+    }
+  },
+  "target_reduction_type": "min",
+  "target_smoothing_clip": 0.5,
+  "target_smoothing_sigma": 0.2,
+  "tau": 0.005,
+  "update_actor_interval": 2,
+  "use_gpu": 1,
+  "algorithm": "TD3PlusBC",
+  "observation_shape": [
+    11
+  ],
+  "action_size": 3
+}
