@@ -1,0 +1,73 @@
+{
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "actor_learning_rate": 0.0003,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "advantage_type": "mean",
+  "batch_size": 256,
+  "beta": 1.0,
+  "critic_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "critic_learning_rate": 0.0003,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "max_weight": 20.0,
+  "n_action_samples": 4,
+  "n_critics": 1,
+  "n_frames": 1,
+  "n_steps": 1,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "bootstrap": false,
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": null,
+  "target_reduction_type": "min",
+  "target_update_interval": 100,
+  "target_update_type": "soft",
+  "tau": 0.005,
+  "update_actor_interval": 1,
+  "use_gpu": 0,
+  "weight_type": "binary",
+  "algorithm": "CRR",
+  "observation_shape": [
+    17
+  ],
+  "action_size": 6
+}
