@@ -24,7 +24,7 @@ def compute_normalized_score(raw_score, env):
 
 def main():
     table = {}
-    for log_dir in glob.glob("reproductions/*"):
+    for log_dir in sorted(glob.glob("reproductions/*")):
         base = log_dir.split('/')[-1]
         splits = base.split('_')
 
