@@ -52,24 +52,48 @@ def main():
     with open("table.csv", "w") as f:
         writer = csv.writer(f)
 
-        header = ["algo", "env", "dataset", "final return", "final normalized return", "best return", "best normalized return"]
+        header = [
+            "algo",
+            "env",
+            "dataset",
+            "final return",
+            "final std",
+            "final normalized return",
+            "final normalized std",
+            "best return",
+            "best std",
+            "best normalized return",
+            "best normalized std",
+        ]
         writer.writerow(header)
 
         for algo in table.keys():
             for env in table[algo].keys():
                 for dataset in table[algo][env]:
                     final_returns = table[algo][env][dataset]["final"]
-                    final_avg = sum(final_returns) / len(final_returns)
+                    final_normalized_returns = list(map(lambda v: compute_normalized_score(v, env), final_returns))
+                    final_avg = np.mean(final_returns)
+                    final_std = np.std(final_returns)
+                    final_normalized_avg = np.mean(final_normalized_returns)
+                    final_normalized_std = np.std(final_normalized_returns)
                     best_returns = table[algo][env][dataset]["best"]
-                    best_avg = sum(best_returns) / len(best_returns)
+                    best_normalized_returns = list(map(lambda v: compute_normalized_score(v, env), best_returns))
+                    best_avg = np.mean(best_returns)
+                    best_std = np.std(best_returns)
+                    best_normalized_avg = np.mean(best_normalized_returns)
+                    best_normalized_std = np.std(best_normalized_returns)
                     row = [
                         algo,
                         env,
                         dataset,
                         final_avg,
-                        100.0 * compute_normalized_score(final_avg, env),
+                        final_std,
+                        100.0 * final_normalized_avg,
+                        100.0 * final_normalized_std,
                         best_avg,
-                        100.0 * compute_normalized_score(best_avg, env),
+                        best_std,
+                        100.0 * best_normalized_avg,
+                        100.0 * best_normalized_std,
                     ]
                     print(row)
                     writer.writerow(row)
