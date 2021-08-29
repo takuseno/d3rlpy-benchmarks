@@ -7,6 +7,10 @@ def main():
         os.remove(path)
         print(f"{path} has been deleted.")
 
+    for path in glob.glob('extra/*/*/*.pt'):
+        os.remove(path)
+        print(f"{path} has been deleted.")
+
 
 if __name__ == '__main__':
     main()
