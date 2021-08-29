@@ -23,6 +23,10 @@ def compute_normalized_score(raw_score, env):
     return (raw_score - random_score) / (expert_score - random_score)
 
 
+def format_float(score):
+    return "{:.1f}".format(score)
+
+
 def main():
     table = {}
     for log_dir in sorted(glob.glob("reproductions/*")):
@@ -86,14 +90,14 @@ def main():
                         algo,
                         env,
                         dataset,
-                        final_avg,
-                        final_std,
-                        100.0 * final_normalized_avg,
-                        100.0 * final_normalized_std,
-                        best_avg,
-                        best_std,
-                        100.0 * best_normalized_avg,
-                        100.0 * best_normalized_std,
+                        format_float(final_avg),
+                        format_float(final_std),
+                        format_float(100.0 * final_normalized_avg),
+                        format_float(100.0 * final_normalized_std),
+                        format_float(best_avg),
+                        format_float(best_std),
+                        format_float(100.0 * best_normalized_avg),
+                        format_float(100.0 * best_normalized_std),
                     ]
                     print(row)
                     writer.writerow(row)
