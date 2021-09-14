@@ -22,6 +22,21 @@ SAC = {
         "extra/multistep/SAC_online_n_1_Walker2d-v2_2_20210908052149/evaluation.csv",
         "extra/multistep/SAC_online_n_1_Walker2d-v2_3_20210908081437/evaluation.csv",
     ],
+    "HopperBulletEnv-v0": [
+        "extra/multistep/SAC_online_n_1_HopperBulletEnv-v0_1_20210913021439/evaluation.csv",
+        "extra/multistep/SAC_online_n_1_HopperBulletEnv-v0_2_20210913065751/evaluation.csv",
+        "extra/multistep/SAC_online_n_1_HopperBulletEnv-v0_3_20210913114051/evaluation.csv",
+    ],
+    "HalfCheetahBulletEnv-v0": [
+        "extra/multistep/SAC_online_n_1_HalfCheetahBulletEnv-v0_1_20210912112616/evaluation.csv",
+        "extra/multistep/SAC_online_n_1_HalfCheetahBulletEnv-v0_2_20210912162156/evaluation.csv",
+        "extra/multistep/SAC_online_n_1_HalfCheetahBulletEnv-v0_3_20210912211840/evaluation.csv",
+    ],
+    "Walker2DBulletEnv-v0": [
+        "extra/multistep/SAC_online_n_1_Walker2DBulletEnv-v0_1_20210913162159/evaluation.csv",
+        "extra/multistep/SAC_online_n_1_Walker2DBulletEnv-v0_2_20210913211400/evaluation.csv",
+        "extra/multistep/SAC_online_n_1_Walker2DBulletEnv-v0_3_20210914015659/evaluation.csv",
+    ]
 }
 
 QR_SAC = {
@@ -39,6 +54,21 @@ QR_SAC = {
         "extra/dist/SAC_online_qr_Walker2d-v2_1_20210908110605/evaluation.csv",
         "extra/dist/SAC_online_qr_Walker2d-v2_2_20210908132528/evaluation.csv",
         "extra/dist/SAC_online_qr_Walker2d-v2_3_20210908154657/evaluation.csv",
+    ],
+    "HopperBulletEnv-v0": [
+        "extra/dist/SAC_online_qr_HopperBulletEnv-v0_1_20210913032234/evaluation.csv",
+        "extra/dist/SAC_online_qr_HopperBulletEnv-v0_2_20210913055127/evaluation.csv",
+        "extra/dist/SAC_online_qr_HopperBulletEnv-v0_3_20210913081937/evaluation.csv",
+    ],
+    "HalfCheetahBulletEnv-v0": [
+        "extra/dist/SAC_online_qr_HalfCheetahBulletEnv-v0_1_20210912193246/evaluation.csv",
+        "extra/dist/SAC_online_qr_HalfCheetahBulletEnv-v0_2_20210912220918/evaluation.csv",
+        "extra/dist/SAC_online_qr_HalfCheetahBulletEnv-v0_3_20210913004612/evaluation.csv",
+    ],
+    "Walker2DBulletEnv-v0": [
+        "extra/dist/SAC_online_qr_Walker2DBulletEnv-v0_1_20210912115500/evaluation.csv",
+        "extra/dist/SAC_online_qr_Walker2DBulletEnv-v0_2_20210912142816/evaluation.csv",
+        "extra/dist/SAC_online_qr_Walker2DBulletEnv-v0_3_20210912165944/evaluation.csv",
     ]
 }
 
@@ -57,6 +87,21 @@ IQN_SAC = {
         "extra/dist/SAC_online_iqn_Walker2d-v2_1_20210908233406/evaluation.csv",
         "extra/dist/SAC_online_iqn_Walker2d-v2_2_20210909051902/evaluation.csv",
         "extra/dist/SAC_online_iqn_Walker2d-v2_3_20210909111702/evaluation.csv",
+    ],
+    "HopperBulletEnv-v0": [
+        "extra/dist/SAC_online_iqn_HopperBulletEnv-v0_1_20210913030912/evaluation.csv",
+        "extra/dist/SAC_online_iqn_HopperBulletEnv-v0_2_20210913080425/evaluation.csv",
+        "extra/dist/SAC_online_iqn_HopperBulletEnv-v0_3_20210913130150/evaluation.csv",
+    ],
+    "HalfCheetahBulletEnv-v0": [
+        "extra/dist/SAC_online_iqn_HalfCheetahBulletEnv-v0_1_20210912115226/evaluation.csv",
+        "extra/dist/SAC_online_iqn_HalfCheetahBulletEnv-v0_2_20210912170009/evaluation.csv",
+        "extra/dist/SAC_online_iqn_HalfCheetahBulletEnv-v0_3_20210912220503/evaluation.csv",
+    ],
+    "Walker2DBulletEnv-v0": [
+        "extra/dist/SAC_online_iqn_Walker2DBulletEnv-v0_1_20210913175909/evaluation.csv",
+        "extra/dist/SAC_online_iqn_Walker2DBulletEnv-v0_2_20210913230802/evaluation.csv",
+        "extra/dist/SAC_online_iqn_Walker2DBulletEnv-v0_3_20210914041137/evaluation.csv",
     ]
 }
 
