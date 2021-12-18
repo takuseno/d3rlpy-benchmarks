@@ -15,7 +15,7 @@ You can see the summary of the results at `table.csv`.
 
 ### Atari 2600
 The `atari` directory contains the training results of the d3rlpy's benchmark scripts with Atari 2600 dataset.
-You can see the summary of the results at `ataritable.csv`.
+You can see the summary of the results at `atari_table.csv`.
 
 ## extra
 The `extra` directory contains the training results of the d3rlpy's extra benchmark scripts.
