@@ -1,0 +1,16 @@
+algo,env,final return,final std,best return,best std
+DiscreteBCQ,asterix,316.7,77.6,860.0,18.7
+DiscreteBCQ,breakout,10.8,1.2,32.2,3.7
+DiscreteBCQ,pong,-7.0,2.5,12.6,1.4
+DiscreteBCQ,qbert,933.3,331.1,8005.8,381.3
+DiscreteBCQ,seaquest,451.3,63.9,1004.3,143.3
+DiscreteCQL,asterix,968.3,300.4,1655.0,170.9
+DiscreteCQL,breakout,22.3,0.3,84.6,7.4
+DiscreteCQL,pong,3.4,6.9,15.9,1.3
+DiscreteCQL,qbert,7899.2,445.3,16095.8,680.4
+DiscreteCQL,seaquest,552.7,157.2,835.3,58.9
+QRDQN,asterix,346.7,18.4,551.7,80.6
+QRDQN,breakout,1.2,0.5,9.2,1.6
+QRDQN,pong,-20.7,0.1,-17.0,0.6
+QRDQN,qbert,255.8,108.0,860.0,181.8
+QRDQN,seaquest,132.7,37.2,612.0,85.7
