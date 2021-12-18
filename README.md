@@ -9,8 +9,13 @@ The `baselines` directory contains the training results of the official implemen
 You can see the summary of the results at `baseline_table.csv`.
 
 ## reproductions
-The `reproductions` directory contains the training results of the d3rlpy's benchmark scripts.
+### D4RL
+The `reproductions` directory contains the training results of the d3rlpy's benchmark scripts with D4RL.
 You can see the summary of the results at `table.csv`.
+
+### Atari 2600
+The `atari` directory contains the training results of the d3rlpy's benchmark scripts with Atari 2600 dataset.
+You can see the summary of the results at `ataritable.csv`.
 
 ## extra
 The `extra` directory contains the training results of the d3rlpy's extra benchmark scripts.
