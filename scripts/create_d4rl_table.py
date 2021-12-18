@@ -29,7 +29,7 @@ def format_float(score):
 
 def main():
     table = {}
-    for log_dir in sorted(glob.glob("reproductions/*")):
+    for log_dir in sorted(glob.glob("d4rl/*")):
         base = log_dir.split('/')[-1]
         splits = base.split('_')
 
@@ -53,7 +53,7 @@ def main():
         table[algo][env][dataset]["final"].append(float(results[-1][-1]))
         table[algo][env][dataset]["best"].append(float(np.max(np.array(results)[:, -1])))
 
-    with open("table.csv", "w") as f:
+    with open("d4rl_table.csv", "w") as f:
         writer = csv.writer(f)
 
         header = [
