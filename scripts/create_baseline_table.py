@@ -2,6 +2,9 @@ import glob
 import os
 import csv
 
+import numpy as np
+
+
 EXPERT_SCORES = {
     "halfcheetah": 12135.0,
     "hopper": 3234.3,
@@ -48,7 +51,7 @@ def main():
     with open("baseline_table.csv", "w") as f:
         writer = csv.writer(f)
 
-        header = ["algo", "env", "dataset", "return", "normalized return"]
+        header = ["algo", "env", "dataset", "return", "std", "normalized return", "normalized std"]
         writer.writerow(header)
 
         for algo in table.keys():
@@ -56,7 +59,10 @@ def main():
                 for dataset in table[algo][env]:
                     returns = table[algo][env][dataset]
                     avg = sum(returns) / len(returns)
-                    row = [algo, env, dataset, avg, 100.0 * compute_normalized_score(avg, env)]
+                    std = np.std(returns)
+                    normalized_score = 100.0 * compute_normalized_score(avg, env)
+                    normalized_std = 100.0 * compute_normalized_score(std, env)
+                    row = [algo, env, dataset, avg, std, normalized_score, normalized_std]
                     print(row)
                     writer.writerow(row)
 
