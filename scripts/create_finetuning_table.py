@@ -28,6 +28,10 @@ def get_pretraining_score(algo, dataset):
     return scores
 
 
+def format_float(score):
+    return "{:.1f}".format(score)
+
+
 def main():
     table = {}
     for algo in ALGOS:
@@ -58,10 +62,10 @@ def main():
                 row = [
                     algo,
                     dataset,
-                    pretraining_score,
-                    pretraining_std,
-                    finetuning_score,
-                    finetuning_std,
+                    format_float(pretraining_score * 100.0),
+                    format_float(pretraining_std * 100.0),
+                    format_float(finetuning_score * 100.0),
+                    format_float(finetuning_std * 100.0),
                 ]
                 print(row)
                 writer.writerow(row)
