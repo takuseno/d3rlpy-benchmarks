@@ -7,7 +7,7 @@ EXPERT_SCORE = 1.0
 BASE_SCORE = 0.0
 
 ALGOS = ["IQL"]
-DATASETS = ["antmaze-umaze-v0", "antmaze-medium-play-v0"]
+DATASETS = ["antmaze-umaze-v0", "antmaze-medium-play-v0", "antmaze-large-play-v0"]
 
 
 def get_finetuning_score(algo, dataset):

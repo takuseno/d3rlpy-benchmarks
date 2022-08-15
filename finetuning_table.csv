@@ -1,3 +1,4 @@
 algo,dataset,pretraining score,pretraining std,finetuning score,finetuning std
 IQL,antmaze-umaze-v0,92.0,4.0,98.0,4.0
 IQL,antmaze-medium-play-v0,71.0,14.5,91.0,9.4
+IQL,antmaze-large-play-v0,52.0,16.6,69.0,13.7
