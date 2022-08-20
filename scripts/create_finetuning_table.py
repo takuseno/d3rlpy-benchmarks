@@ -6,7 +6,7 @@ import numpy as np
 EXPERT_SCORE = 1.0
 BASE_SCORE = 0.0
 
-ALGOS = ["IQL"]
+ALGOS = ["IQL", "AWAC"]
 DATASETS = ["antmaze-umaze-v0", "antmaze-medium-play-v0", "antmaze-large-play-v0"]
 
 
