@@ -23,6 +23,16 @@ def main():
         os.remove(path)
         print(f"{path} has been deleted.")
 
+    for path in glob.glob('baselines/plas/*/*.pth'):
+        os.remove(path)
+        print(f"{path} has been deleted.")
+    for path in glob.glob('baselines/plas/*/*.npy'):
+        os.remove(path)
+        print(f"{path} has been deleted.")
+    for path in glob.glob('baselines/plas/*/vae_logs.p'):
+        os.remove(path)
+        print(f"{path} has been deleted.")
+
 
 if __name__ == '__main__':
     main()
