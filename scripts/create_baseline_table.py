@@ -52,6 +52,25 @@ def get_iql_scores():
     return table
 
 
+def get_plas_p_scores():
+    table = {}
+    for env in TASKS:
+        table[env] = {}
+        for dataset_type in DATASET_TYPES:
+            table[env][dataset_type] = []
+            for seed in range(3):
+                dataset = f"{env}-{dataset_type.replace('_', '-')}-v0"
+                dir_name = f"Exp000{seed+1}_LatentPerturbation_{dataset}-{seed+1}"
+                path = os.path.join('baselines', 'plas_p', dir_name, 'progress.csv')
+                with open(path, 'r') as f:
+                    reader = csv.reader(f)
+                    results = [row for row in reader]
+                header = results[0]
+                index = header.index("AverageReturn")
+                table[env][dataset_type].append(float(results[-1][index]))
+    return table
+
+
 def main():
     table = {}
     for algo in ALGOS:
@@ -71,6 +90,9 @@ def main():
 
     # add iql
     table["iql"] = get_iql_scores()
+
+    # add plas_p
+    table["plas_p"] = get_plas_p_scores()
 
     with open("baseline_table.csv", "w") as f:
         writer = csv.writer(f)
