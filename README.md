@@ -25,6 +25,8 @@ You can see the summary of the results at `finetuning_table.csv`.
 ## analysis tools
 ### installation
 ```
+$ git clone --depth 1 https://github.com/takuseno/d3rlpy-benchmarks
+$ cd d3rlpy-benchmarks
 $ pip install -e .
 ```
 
