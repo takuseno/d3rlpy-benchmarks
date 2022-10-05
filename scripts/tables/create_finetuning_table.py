@@ -1,6 +1,7 @@
+import csv
 import glob
 import os
-import csv
+
 import numpy as np
 
 EXPERT_SCORE = 1.0

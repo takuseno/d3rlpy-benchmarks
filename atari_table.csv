@@ -14,7 +14,7 @@ NFQ,breakout,1.5,1.2,6.4,1.0
 NFQ,pong,-20.7,0.2,-18.0,0.9
 NFQ,qbert,290.0,97.8,648.5,81.4
 NFQ,seaquest,123.0,89.9,841.2,67.3
-QRDQN,asterix,365.5,84.4,551.0,76.2
+QRDQN,asterix,365.5,84.4,533.5,62.5
 QRDQN,breakout,1.2,0.4,9.0,1.9
 QRDQN,pong,-20.5,0.3,-16.6,1.1
 QRDQN,qbert,274.5,146.6,695.8,153.1

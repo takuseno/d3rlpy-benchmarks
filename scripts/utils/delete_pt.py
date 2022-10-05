@@ -1,38 +1,38 @@
-import os
 import glob
+import os
 
 
 def main():
-    for path in glob.glob('reproductions/*/*.pt'):
+    for path in glob.glob("reproductions/*/*.pt"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
-    for path in glob.glob('extra/*/*/*.pt'):
+    for path in glob.glob("extra/*/*/*.pt"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
-    for path in glob.glob('d4rl/*/*.pt'):
+    for path in glob.glob("d4rl/*/*.pt"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
-    for path in glob.glob('atari/*/*.pt'):
+    for path in glob.glob("atari/*/*.pt"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
-    for path in glob.glob('finetuning/*/*.pt'):
+    for path in glob.glob("finetuning/*/*.pt"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
-    for path in glob.glob('baselines/plas/*/*.pth'):
+    for path in glob.glob("baselines/plas/*/*.pth"):
         os.remove(path)
         print(f"{path} has been deleted.")
-    for path in glob.glob('baselines/plas/*/*.npy'):
+    for path in glob.glob("baselines/plas/*/*.npy"):
         os.remove(path)
         print(f"{path} has been deleted.")
-    for path in glob.glob('baselines/plas/*/vae_logs.p'):
+    for path in glob.glob("baselines/plas/*/vae_logs.p"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

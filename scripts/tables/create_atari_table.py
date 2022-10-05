@@ -1,7 +1,8 @@
-import glob
-import os
 import csv
+
 import numpy as np
+
+from d3rlpy_benchmarks.data_loader import get_atari_algo_list, get_atari_env_list, load_atari_score
 
 
 def format_float(score):
@@ -9,27 +10,6 @@ def format_float(score):
 
 
 def main():
-    table = {}
-    for log_dir in sorted(glob.glob("atari/*")):
-        base = log_dir.split('/')[-1]
-        splits = base.split('_')
-
-        algo = splits[0]
-        env = splits[1]
-
-        if algo not in table:
-            table[algo] = {}
-
-        if env not in table[algo]:
-            table[algo][env] = {"final": [], "best": []}
-
-        with open(os.path.join(log_dir, 'environment.csv'), 'r') as f:
-            reader = csv.reader(f)
-            results = [list(map(float, row)) for row in reader]
-
-        table[algo][env]["final"].append(float(results[-1][-1]))
-        table[algo][env]["best"].append(float(np.max(np.array(results)[:, -1])))
-
     with open("atari_table.csv", "w") as f:
         writer = csv.writer(f)
 
@@ -43,12 +23,13 @@ def main():
         ]
         writer.writerow(header)
 
-        for algo in table.keys():
-            for env in table[algo].keys():
-                final_returns = table[algo][env]["final"]
+        for algo in get_atari_algo_list():
+            for env in get_atari_env_list():
+                score = load_atari_score(algo, env)
+                final_returns = score.scores[:, -1]
                 final_avg = np.mean(final_returns)
                 final_std = np.std(final_returns)
-                best_returns = table[algo][env]["best"]
+                best_returns = np.max(score.scores, axis=1)
                 best_avg = np.mean(best_returns)
                 best_std = np.std(best_returns)
                 row = [
@@ -63,5 +44,5 @@ def main():
                 writer.writerow(row)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

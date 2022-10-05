@@ -1,9 +1,8 @@
+import csv
 import glob
 import os
-import csv
 
 import numpy as np
-
 
 EXPERT_SCORES = {
     "halfcheetah": 12135.0,
@@ -45,7 +44,7 @@ def get_iql_scores():
             table[env][dataset_type] = []
             for seed in range(3):
                 file_name = f"{env}-{dataset_type.replace('_', '-')}-v0_{seed+1}.txt"
-                path = os.path.join('baselines', 'iql', file_name)
+                path = os.path.join("baselines", "iql", file_name)
                 with open(path, "r") as f:
                     data = np.loadtxt(f, delimiter=" ")
                 table[env][dataset_type].append(data[-1, 1])
@@ -61,8 +60,8 @@ def get_plas_p_scores():
             for seed in range(3):
                 dataset = f"{env}-{dataset_type.replace('_', '-')}-v0"
                 dir_name = f"Exp000{seed+1}_LatentPerturbation_{dataset}-{seed+1}"
-                path = os.path.join('baselines', 'plas_p', dir_name, 'progress.csv')
-                with open(path, 'r') as f:
+                path = os.path.join("baselines", "plas_p", dir_name, "progress.csv")
+                with open(path, "r") as f:
                     reader = csv.reader(f)
                     results = [row for row in reader]
                 header = results[0]
@@ -119,5 +118,5 @@ def main():
                     writer.writerow(row)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
