@@ -19,7 +19,11 @@ def main():
 
     plt.legend()
     plt.tight_layout()
-    plt.show()
+
+    if args.save:
+        plt.savefig(args.save)
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

@@ -59,7 +59,11 @@ def main():
     plt.xticks(x_values + 0.3 / 2, labels)
     plt.ylabel("normalized score")
     plt.legend()
-    plt.show()
+
+    if args.save:
+        plt.savefig(args.save)
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

@@ -18,7 +18,11 @@ def main():
     for score in scores:
         plot_score_curve(score, window_size=args.window)
     plt.tight_layout()
-    plt.show()
+
+    if args.save:
+        plt.savefig(args.save)
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

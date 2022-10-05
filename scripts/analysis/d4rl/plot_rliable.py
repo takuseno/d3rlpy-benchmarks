@@ -18,7 +18,11 @@ def main():
     plot_aggregate_metrics(scores, args.last_num)
 
     plt.tight_layout()
-    plt.show()
+
+    if args.save:
+        plt.savefig(args.save)
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

@@ -31,7 +31,11 @@ def main():
     plt.bar(x_values, mean_stds, yerr=std_stds, color="b", ecolor="black", width=0.3, align="center", capsize=5)
     plt.xticks(x_values, labels)
     plt.ylabel("average standard deviation")
-    plt.show()
+
+    if args.save:
+        plt.savefig(args.save)
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

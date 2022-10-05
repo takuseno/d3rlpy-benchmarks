@@ -17,9 +17,34 @@ You can see the summary of the results at `d4rl_table.csv`.
 The `atari` directory contains the training results of the d3rlpy's benchmark scripts with Atari 2600 dataset.
 You can see the summary of the results at `atari_table.csv`.
 
-## extra
-The `extra` directory contains the training results of the d3rlpy's extra benchmark scripts.
 
-- `dist_table.csv`: the results of distributional Q-function tests
-- `multistep_table.csv`: the results of multistep learning tests
+## analysis tools
+### installation
+```
+$ pip install -e .
+```
 
+### library
+This repository provides lightweight analysis tools for researchers to conduct the further analysis.
+Here is the example snippet:
+
+```py
+import matplotlib.pyplot as plt
+from d3rlpy_benchmarks.data_loader import load_d4rl_score
+
+score = load_d4rl_score("CQL", "hopper", "medium-v0")
+plt.plot(score.steps[0], np.mean(score.scores, axis=0))
+plt.show()
+```
+
+There are ready-to-go analysis scripts in `scripts/analysis` directory.
+```
+$ python scripts/analysis/d4rl/plot_curve.py --env hopper --dataset medium-v0 --window 100
+```
+
+
+### coding style
+```
+$ pip install black isort mypy
+$ python scripts/utils/static_check.py
+```
