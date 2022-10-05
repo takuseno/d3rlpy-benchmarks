@@ -17,6 +17,10 @@ You can see the summary of the results at `d4rl_table.csv`.
 The `atari` directory contains the training results of the d3rlpy's benchmark scripts with Atari 2600 dataset.
 You can see the summary of the results at `atari_table.csv`.
 
+### Finetuning
+The `finetuning` directory contains the finetuning results of the d3rlpy's benchmark scripts with AntMaze datasets.
+You can see the summary of the results at `finetuning_table.csv`.
+
 
 ## analysis tools
 ### installation
