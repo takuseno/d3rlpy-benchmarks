@@ -1,2 +1,3 @@
 d3rlpy_benchmarks.egg-info
 *.pyc
+.python-version
