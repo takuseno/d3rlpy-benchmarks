@@ -37,13 +37,14 @@ Here is the example snippet:
 ```py
 import matplotlib.pyplot as plt
 from d3rlpy_benchmarks.data_loader import load_d4rl_score
+from d3rlpy_benchmarks.plot_utils import plot_score_curve
 
 score = load_d4rl_score("CQL", "hopper", "medium-v0")
-plt.plot(score.steps[0], np.mean(score.scores, axis=0))
+plot_score_curve(score, window_size=100)
 plt.show()
 ```
 
-There are ready-to-go analysis scripts in `scripts/analysis` directory.
+There are many ready-to-go analysis scripts in `scripts/analysis` directory.
 ```
 $ python scripts/analysis/d4rl/plot_curve.py --env hopper --dataset medium-v0 --window 100
 ```

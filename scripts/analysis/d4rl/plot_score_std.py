@@ -14,7 +14,7 @@ def main():
     parser.add_argument("--save", type=str)
     args = parser.parse_args()
 
-    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["SAC", "TD3"])
+    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["CRR"])
 
     # compute standard deviation
     labels = []
@@ -30,7 +30,7 @@ def main():
 
     plt.bar(x_values, mean_stds, yerr=std_stds, color="b", ecolor="black", width=0.3, align="center", capsize=5)
     plt.xticks(x_values, labels)
-    plt.ylabel("average standard deviation")
+    plt.ylabel("Average Standard Deviation")
 
     if args.save:
         plt.savefig(args.save)

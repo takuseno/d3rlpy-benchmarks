@@ -14,7 +14,7 @@ def main():
     parser.add_argument("--save", type=str)
     args = parser.parse_args()
 
-    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["SAC", "TD3"])
+    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["CRR"])
     plot_performance_profile(scores, args.last_num)
 
     plt.legend()

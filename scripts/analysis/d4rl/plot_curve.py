@@ -14,7 +14,7 @@ def main():
     parser.add_argument("--save", type=str)
     args = parser.parse_args()
 
-    scores = load_all_algos_d4rl_scores(args.env, args.dataset)
+    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["CRR"])
     for score in scores:
         plot_score_curve(score, window_size=args.window)
     plt.tight_layout()

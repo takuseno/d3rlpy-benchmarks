@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--save", type=str)
     args = parser.parse_args()
 
-    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["SAC", "TD3"])
+    scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["CRR"])
 
     # compute topN and bottomN scores
     min_scores = []
