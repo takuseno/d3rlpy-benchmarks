@@ -29,7 +29,7 @@ def main():
 
     plt.bar(x_values, means, yerr=stds, color="b", ecolor="black", width=0.3, align="center", capsize=5)
     plt.xticks(x_values, labels)
-    plt.ylabel("Average Return")
+    plt.ylabel("Normalized Score")
 
     if args.save:
         plt.savefig(args.save)
