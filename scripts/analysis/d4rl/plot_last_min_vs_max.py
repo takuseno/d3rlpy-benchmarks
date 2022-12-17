@@ -54,7 +54,8 @@ def main():
     )
     plt.xticks(x_values + 0.3 / 2, labels)
     plt.ylabel("Normalized Score")
-    plt.legend()
+    plt.ylim(bottom=0.0)
+    plt.legend(loc="upper left")
 
     if args.save:
         plt.savefig(args.save)

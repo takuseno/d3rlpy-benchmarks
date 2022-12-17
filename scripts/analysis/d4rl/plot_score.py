@@ -29,6 +29,7 @@ def main():
 
     plt.bar(x_values, means, yerr=stds, color="b", ecolor="black", width=0.3, align="center", capsize=5)
     plt.xticks(x_values, labels)
+    plt.ylim(bottom=0.0)
     plt.ylabel("Normalized Score")
 
     if args.save:

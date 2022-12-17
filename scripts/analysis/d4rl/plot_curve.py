@@ -14,13 +14,18 @@ def main():
     parser.add_argument("--save", type=str)
     args = parser.parse_args()
 
+    plt.figure(figsize=(8, 6))
+
     scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["CRR"])
     for score in scores:
         plot_score_curve(score, window_size=args.window)
-    plt.tight_layout()
 
-    plt.xlabel("Gradient Steps")
-    plt.ylabel("Average Return")
+    plt.xlabel("Gradient Steps", fontsize=13)
+    plt.ylabel("Average Return", fontsize=13)
+    plt.legend(fontsize=13)
+    plt.tick_params(labelsize=10)
+
+    plt.tight_layout()
 
     if args.save:
         plt.savefig(args.save)
