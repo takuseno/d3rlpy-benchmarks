@@ -43,12 +43,13 @@ def main():
     plot(collect_dist_paths("extra/dist", args.env, "iqn"), "IQN-SAC")
 
     plt.title(args.env)
-    plt.xlabel("million step")
+    plt.xlabel("Million Step")
     plt.xticks([0, 200000, 400000, 600000, 800000, 1000000],
                ["0", "0.2", "0.4", "0.6", "0.8", "1.0"])
     plt.xlim(0, 1000000)
-    plt.ylabel("average return")
+    plt.ylabel("Average Return")
     plt.legend()
+    plt.tight_layout()
 
     if args.save:
         plt.savefig(args.save)
