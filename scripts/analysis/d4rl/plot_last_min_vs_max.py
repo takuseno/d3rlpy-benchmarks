@@ -16,43 +16,31 @@ def main():
 
     scores = load_all_algos_d4rl_scores(args.env, args.dataset, exclude=["CRR"])
 
-    # compute topN and bottomN scores
-    max_means = []
-    min_means = []
-    max_stds = []
-    min_stds = []
+    # compute diff of max and min scores
+    diff_means = []
+    diff_stds = []
     labels = []
     for score in scores:
-        max_means.append(np.mean(np.max(score.scores[:, -args.last_num :], axis=1)))
-        min_means.append(np.mean(np.min(score.scores[:, -args.last_num :], axis=1)))
-        max_stds.append(np.std(np.max(score.scores[:, -args.last_num :], axis=1)))
-        min_stds.append(np.std(np.min(score.scores[:, -args.last_num :], axis=1)))
+        max_values = np.max(score.scores[:, -args.last_num :], axis=1)
+        min_values = np.min(score.scores[:, -args.last_num :], axis=1)
+        diff = max_values - min_values
+        diff_means.append(np.mean(diff))
+        diff_stds.append(np.std(diff))
         labels.append(score.algo)
     x_values = np.arange(len(labels))
 
     plt.bar(
         x_values,
-        min_means,
-        yerr=min_stds,
+        diff_means,
+        yerr=diff_stds,
         color="b",
         ecolor="black",
         width=0.3,
         align="center",
         capsize=5,
-        label=f"Mean Min in Last {args.last_num}",
+        label=f"Mean Min-Max Gap in Last {args.last_num}",
     )
-    plt.bar(
-        x_values + 0.3,
-        max_means,
-        yerr=max_stds,
-        color="r",
-        ecolor="black",
-        width=0.3,
-        align="center",
-        capsize=5,
-        label=f"Mean Max in Last {args.last_num}",
-    )
-    plt.xticks(x_values + 0.3 / 2, labels)
+    plt.xticks(x_values, labels)
     plt.ylabel("Normalized Score")
     plt.ylim(bottom=0.0)
     plt.legend(loc="upper left")
