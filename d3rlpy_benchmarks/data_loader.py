@@ -22,27 +22,29 @@ class ScoreData:
 def get_d4rl_algo_list() -> Sequence[str]:
     algos = []
     for log_dir in glob.glob(os.path.join(D4RL_DIR, "*")):
-        base = log_dir.split("/")[-1]
-        splits = base.split("_")
-        algo = splits[0]
+        algo = log_dir.split("/")[-1]
         if algo not in algos:
             algos.append(algo)
     return sorted(algos)
 
 
-def load_d4rl_score(algo: str, env: str, dataset: str) -> ScoreData:
+def load_d4rl_score(algo: str, env: str, dataset: str) -> Optional[ScoreData]:
     score_list = []
     step_list = []
-    for log_dir in glob.glob(os.path.join(D4RL_DIR, f"{algo}_{env}-{dataset}_*")):
+    for log_dir in glob.glob(os.path.join(D4RL_DIR, algo, f"*_{env}-{dataset}_*")):
         with open(os.path.join(log_dir, "environment.csv"), "r") as f:
             data = np.loadtxt(f, delimiter=",", skiprows=1)
             score_list.append(data[:, 2])
             step_list.append(data[:, 1])
+
+    if len(score_list) == 0:
+        return None
+
     raw_scores = np.array(score_list)
     steps = np.array(step_list)
 
     # drop warming-up steps
-    if algo in ["PLAS", "PLASWithPerturbation"]:
+    if algo in ["plas", "plas_with_perturbation"]:
         raw_scores = raw_scores[:, -500:]
         steps = steps[:, :500]
 
@@ -60,7 +62,12 @@ def load_all_algos_d4rl_scores(env: str, dataset: str, exclude: Optional[Sequenc
     algos = get_d4rl_algo_list()
     if exclude:
         algos = [algo for algo in algos if algo not in exclude]
-    return [load_d4rl_score(algo, env, dataset) for algo in algos]
+    rets = []
+    for algo in algos:
+        score = load_d4rl_score(algo, env, dataset)
+        if score:
+            rets.append(score)
+    return rets
 
 
 def get_atari_algo_list() -> Sequence[str]:
