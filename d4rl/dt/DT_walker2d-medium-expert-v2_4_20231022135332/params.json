@@ -1,0 +1,104 @@
+{
+  "observation_shape": [
+    17
+  ],
+  "action_size": 6,
+  "config": {
+    "type": "decision_transformer",
+    "params": {
+      "batch_size": 64,
+      "gamma": 0.99,
+      "observation_scaler": {
+        "type": "standard",
+        "params": {
+          "mean": [
+            1.228218959248743,
+            0.16870032013612277,
+            -0.0708838770448516,
+            -0.16197893533217966,
+            0.37257093865795526,
+            -0.012208372534648048,
+            -0.42337233572941546,
+            0.19005013366539408,
+            3.159695152156739,
+            -0.01809282617560293,
+            0.034969031637093285,
+            -0.013922027209783904,
+            -0.05937008114564945,
+            -0.19549501455995608,
+            -0.0019200549105191998,
+            -0.062481830033791506,
+            -0.2736413589572813
+          ],
+          "std": [
+            0.09946051966705571,
+            0.26031141905637495,
+            0.15062563445182747,
+            0.24256293878276403,
+            0.6765954341576459,
+            0.16536100394610426,
+            0.3816789985915656,
+            0.6982691751499769,
+            1.3507906192656234,
+            0.764822893303751,
+            1.5362197098263761,
+            2.1813804756293895,
+            3.2793802680544997,
+            4.770748224999149,
+            1.175913754889645,
+            4.043152785100677,
+            5.896018315588564
+          ],
+          "eps": 0.001
+        }
+      },
+      "action_scaler": {
+        "type": "none",
+        "params": {}
+      },
+      "reward_scaler": {
+        "type": "multiply",
+        "params": {
+          "multiplier": 0.001
+        }
+      },
+      "context_size": 20,
+      "max_timestep": 1000,
+      "learning_rate": 0.0001,
+      "encoder_factory": {
+        "type": "vector",
+        "params": {
+          "hidden_units": [
+            128
+          ],
+          "activation": "relu",
+          "use_batch_norm": false,
+          "dropout_rate": null,
+          "exclude_last_activation": true
+        }
+      },
+      "optim_factory": {
+        "type": "adam_w",
+        "params": {
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false
+        }
+      },
+      "num_heads": 1,
+      "num_layers": 3,
+      "attn_dropout": 0.1,
+      "resid_dropout": 0.1,
+      "embed_dropout": 0.1,
+      "activation_type": "relu",
+      "position_encoding_type": "simple",
+      "warmup_steps": 10000,
+      "clip_grad_norm": 0.25,
+      "compile": false
+    }
+  }
+}

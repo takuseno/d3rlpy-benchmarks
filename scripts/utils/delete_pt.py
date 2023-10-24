@@ -11,7 +11,7 @@ def main():
         os.remove(path)
         print(f"{path} has been deleted.")
 
-    for path in glob.glob("d4rl/*/*.pt"):
+    for path in glob.glob("d4rl/*/*/*.d3"):
         os.remove(path)
         print(f"{path} has been deleted.")
 
