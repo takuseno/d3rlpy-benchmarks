@@ -26,6 +26,8 @@ def main():
         for algo in get_atari_algo_list():
             for env in get_atari_env_list():
                 score = load_atari_score(algo, env)
+                if len(score.scores) == 0:
+                    continue
                 final_returns = score.scores[:, -1]
                 final_avg = np.mean(final_returns)
                 final_std = np.std(final_returns)

@@ -1,0 +1,81 @@
+{
+  "observation_shape": [
+    4,
+    84,
+    84
+  ],
+  "action_size": 4,
+  "config": {
+    "type": "discrete_decision_transformer",
+    "params": {
+      "batch_size": 128,
+      "gamma": 0.99,
+      "observation_scaler": {
+        "type": "pixel",
+        "params": {}
+      },
+      "action_scaler": {
+        "type": "none",
+        "params": {}
+      },
+      "reward_scaler": {
+        "type": "none",
+        "params": {}
+      },
+      "context_size": 30,
+      "max_timestep": 2908,
+      "learning_rate": 0.0006,
+      "encoder_factory": {
+        "type": "pixel",
+        "params": {
+          "filters": [
+            [
+              32,
+              8,
+              4
+            ],
+            [
+              64,
+              4,
+              2
+            ],
+            [
+              64,
+              3,
+              1
+            ]
+          ],
+          "feature_size": 128,
+          "activation": "relu",
+          "use_batch_norm": false,
+          "dropout_rate": null,
+          "exclude_last_activation": true
+        }
+      },
+      "optim_factory": {
+        "type": "gpt_adam_w",
+        "params": {
+          "betas": [
+            0.9,
+            0.95
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.1,
+          "amsgrad": false
+        }
+      },
+      "num_heads": 8,
+      "num_layers": 6,
+      "attn_dropout": 0.1,
+      "resid_dropout": 0.1,
+      "embed_dropout": 0.1,
+      "activation_type": "gelu",
+      "embed_activation_type": "tanh",
+      "position_encoding_type": "global",
+      "warmup_tokens": 10240,
+      "final_tokens": 90000000,
+      "clip_grad_norm": 1.0,
+      "compile": false
+    }
+  }
+}

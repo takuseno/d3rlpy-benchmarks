@@ -9,6 +9,9 @@ DiscreteCQL,breakout,22.0,2.1,89.8,12.2
 DiscreteCQL,pong,3.9,7.3,16.3,1.4
 DiscreteCQL,qbert,8166.2,705.4,15791.5,530.5
 DiscreteCQL,seaquest,576.9,125.6,820.5,94.0
+DiscreteDT,breakout,86.0,16.8,121.1,24.7
+DiscreteDT,qbert,9619.0,2098.6,11040.2,1326.8
+DiscreteDT,seaquest,1096.0,141.2,1228.4,102.6
 NFQ,asterix,380.0,220.7,745.0,85.6
 NFQ,breakout,1.5,1.2,6.4,1.0
 NFQ,pong,-20.7,0.2,-18.0,0.9
