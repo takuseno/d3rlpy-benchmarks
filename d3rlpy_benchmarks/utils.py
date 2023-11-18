@@ -4,12 +4,14 @@ EXPERT_SCORES = {
     "halfcheetah": 12135.0,
     "hopper": 3234.3,
     "walker2d": 4592.3,
+    "ant": 3879.7,
 }
 
 BASE_RANDOM = {
     "halfcheetah": -280.178953,
     "hopper": -20.272305,
     "walker2d": 1.629008,
+    "ant": -325.6,
 }
 
 ALGO_NAME_MAPPING = {

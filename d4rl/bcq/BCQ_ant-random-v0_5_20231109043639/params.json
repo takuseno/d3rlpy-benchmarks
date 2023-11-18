@@ -1,0 +1,117 @@
+{
+  "observation_shape": [
+    111
+  ],
+  "action_size": 8,
+  "config": {
+    "type": "bcq",
+    "params": {
+      "batch_size": 100,
+      "gamma": 0.99,
+      "observation_scaler": {
+        "type": "none",
+        "params": {}
+      },
+      "action_scaler": {
+        "type": "none",
+        "params": {}
+      },
+      "reward_scaler": {
+        "type": "none",
+        "params": {}
+      },
+      "actor_learning_rate": 0.001,
+      "critic_learning_rate": 0.001,
+      "imitator_learning_rate": 0.001,
+      "actor_optim_factory": {
+        "type": "adam",
+        "params": {
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      },
+      "critic_optim_factory": {
+        "type": "adam",
+        "params": {
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      },
+      "imitator_optim_factory": {
+        "type": "adam",
+        "params": {
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      },
+      "actor_encoder_factory": {
+        "type": "vector",
+        "params": {
+          "hidden_units": [
+            400,
+            300
+          ],
+          "activation": "relu",
+          "use_batch_norm": false,
+          "dropout_rate": null,
+          "exclude_last_activation": false
+        }
+      },
+      "critic_encoder_factory": {
+        "type": "vector",
+        "params": {
+          "hidden_units": [
+            400,
+            300
+          ],
+          "activation": "relu",
+          "use_batch_norm": false,
+          "dropout_rate": null,
+          "exclude_last_activation": false
+        }
+      },
+      "imitator_encoder_factory": {
+        "type": "vector",
+        "params": {
+          "hidden_units": [
+            750,
+            750
+          ],
+          "activation": "relu",
+          "use_batch_norm": false,
+          "dropout_rate": null,
+          "exclude_last_activation": false
+        }
+      },
+      "q_func_factory": {
+        "type": "mean",
+        "params": {
+          "share_encoder": false
+        }
+      },
+      "tau": 0.005,
+      "n_critics": 2,
+      "update_actor_interval": 1,
+      "lam": 0.75,
+      "n_action_samples": 100,
+      "action_flexibility": 0.05,
+      "rl_start_step": 0,
+      "beta": 0.5
+    }
+  }
+}

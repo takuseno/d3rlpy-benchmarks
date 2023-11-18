@@ -4,7 +4,7 @@ import numpy as np
 
 from d3rlpy_benchmarks.data_loader import get_d4rl_algo_list, load_d4rl_score
 
-ENVS = sorted(["halfcheetah", "walker2d", "hopper"])
+ENVS = sorted(["halfcheetah", "walker2d", "hopper", "ant"])
 DATASETS = sorted(
     [
         "random-v0",
